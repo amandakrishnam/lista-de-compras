@@ -100,8 +100,12 @@ form {
     display: flex;
     gap: 8px;
 }
-x
-ul {
+
+x ul {
+    list-style-type: none;
+}
+
+li {
     list-style-type: none;
 }
 
