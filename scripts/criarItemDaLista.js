@@ -1,7 +1,6 @@
 import gerarDiaDaSemana from "./gerarDiaDaSemana.js";
-import verificarListaVazia from "./verificarListaVazia.js";
 
-const inputItem = document.getElementById("input-item")
+export const inputItem = document.getElementById("input-item")
 let contador = 0;
 
 export function criarItemDaLista() {
@@ -44,7 +43,6 @@ export function criarItemDaLista() {
 
     //Adiciona o botão e o ícone excluir dentro do container da lista
     containerItemDaLista.appendChild(botao);
-    containerItemDaLista.appendChild(iconeExcluir);
 
     //adicionar ícone dentro do botão
     botao.appendChild(iconeExcluir);
