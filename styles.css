@@ -97,8 +97,20 @@ form {
 }
 
 .lista-item-container {
-    display: flex;
-    gap: 8px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-right: 40px; /* espaço reservado para o botão */
+  gap: 8px;
+}
+
+.botao-excluir {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: #dc3545;
+  font-size: 1.2rem;
 }
 
 x ul {
