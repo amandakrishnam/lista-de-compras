@@ -1,5 +1,7 @@
 import gerarDiaDaSemana from "./gerarDiaDaSemana.js";
+import verificarListaVazia from "./verificarListaVazia.js";
 
+const listaDeCompras = document.getElementById("lista-de-compras");
 export const inputItem = document.getElementById("input-item")
 let contador = 0;
 
@@ -56,9 +58,16 @@ export function criarItemDaLista() {
     itemDaLista.appendChild(itemData);
 
     botao.addEventListener("click", function () {
-        itemDaLista.remove();
+        const confirmacao = confirm("Deseja realmente deletar esse item?");
+
+        if (confirmacao) {            
+            itemDaLista.remove();
+            alert("Item deletado");
+            verificarListaVazia(listaDeCompras);
+        }
     });
 
     return itemDaLista;
 }
 
+// adicionar botão de editar
