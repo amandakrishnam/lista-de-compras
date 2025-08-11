@@ -14,10 +14,23 @@ export function criarItemDaLista() {
     const itemDaLista = document.createElement("li");
     const containerItemDaLista = document.createElement("div");
     containerItemDaLista.classList.add("lista-item-container");
-    const inputCheckbox = document.createElement("input");
-    inputCheckbox.type = "checkbox";
-    inputCheckbox.id = "checkbox-" + contador++;
     const nomeItem = document.createElement("p");
+
+    // Cria um elemento <input> do tipo checkbox para marcar o item como concluído.
+    const inputCheckbox = document.createElement("input");
+    inputCheckbox.type = "checkbox"; // Define o tipo do input como checkbox.
+    inputCheckbox.id = "checkbox-" + contador++; // Define um id único para o checkbox usando um contador.
+    containerItemDaLista.appendChild(inputCheckbox); // Adiciona o checkbox ao container do item.
+
+    // Adiciona um evento para riscar ou remover o risco do texto ao marcar/desmarcar o checkbox.
+    inputCheckbox.addEventListener("click", function () {
+        if (inputCheckbox.checked) {
+            nomeItem.style.textDecoration = "line-through"; // Risca o texto se estiver marcado.
+        } else {
+            nomeItem.style.textDecoration = "none"; // Remove o risco se estiver desmarcado.
+        }
+    });
+    
     nomeItem.innerText = inputItem.value;
 
     //inicializar o botão excluir
@@ -31,16 +44,6 @@ export function criarItemDaLista() {
     //estilizar o ícone/botão
     botao.style.cursor = "pointer";
 
-    // decoração ao marcar e desmarcar o checkbox
-    inputCheckbox.addEventListener("click", function () {
-        if (inputCheckbox.checked) {
-            nomeItem.style.textDecoration = "line-through";
-        } else {
-            nomeItem.style.textDecoration = "none";
-        }
-    });
-
-    containerItemDaLista.appendChild(inputCheckbox);
     containerItemDaLista.appendChild(nomeItem);
 
     //Adiciona o botão e o ícone excluir dentro do container da lista
